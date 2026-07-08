@@ -13,9 +13,11 @@ This repository is a compact learning map for Go fundamentals. Each folder focus
 - Structs, embedded structs, methods, and pointer receivers
 - Interfaces and behavior-based design
 - Pointers and pass-by-value behavior
+- File and folder handling with the `os`, `io`, and `path/filepath` packages
 - Generics with typed functions and a generic stack
 - Goroutines, channels, WaitGroups, and mutexes
 - Enum-style typed constants with `iota`
+- Local packages, modules, `go.mod`, `go.sum`, and third-party dependencies
 
 ## Project Structure
 
@@ -25,15 +27,19 @@ This repository is a compact learning map for Go fundamentals. Each folder focus
 |-- channels/     # Channel basics, buffering, done signals, and select
 |-- conditions/   # if/else and switch examples
 |-- enums/        # Enum-style constants with iota
+|-- files/        # File reading, writing, renaming, deleting, and folders
 |-- functions/    # Functions, closures, variadic params, function values
 |-- generics/     # Generic functions and generic types
 |-- goroutines/   # Concurrent execution and WaitGroups
 |-- interface/    # Interface-driven payment gateway example
 |-- loops/        # for loops, break, and continue
 |-- mutex/        # Race-condition-safe shared state
+|-- packages/     # Local packages, exported names, and dependencies
 |-- pointer/      # Pointers and value updates
 |-- struct/       # Structs, methods, embedding, constructors
 |-- variables/    # Variables, constants, and simple expressions
+|-- go.mod        # Module name and dependency requirements
+|-- go.sum        # Dependency checksums
 `-- main.go       # Small root entry point
 ```
 
@@ -45,9 +51,23 @@ Install Go, then clone the repository and run any sample file directly:
 go run variables/variables.go
 go run array/slice.go
 go run goroutines/goroutines.go
+go run packages/main.go
 ```
 
-Each file is designed as a separate `package main` example. Run files one at a time instead of running an entire folder, because some folders contain multiple standalone examples.
+Most concept files are standalone `package main` examples. Run files one at a time instead of running an entire folder, because some folders contain multiple standalone examples.
+
+The `packages/` example imports local packages and the third-party `github.com/fatih/color` package, so run it from the repository root:
+
+```bash
+go run packages/main.go
+```
+
+The `files/` example can be run from the root or from inside the `files` folder:
+
+```bash
+go run files/files.go
+cd files && go run files.go
+```
 
 ## Recommended Go Version
 
@@ -59,8 +79,19 @@ Some examples use modern standard-library helpers such as `slices`, `maps`, and 
 
 1. Start with `variables/` and `conditions/`.
 2. Move to `loops/`, `array/`, and `functions/`.
-3. Learn `pointer/`, `struct/`, and `interface/`.
-4. Finish with `generics/`, `goroutines/`, `channels/`, and `mutex/`.
+3. Learn `pointer/`, `struct/`, `interface/`, and `files/`.
+4. Explore `packages/` to understand modules, imports, exported names, and dependencies.
+5. Finish with `generics/`, `goroutines/`, `channels/`, and `mutex/`.
+
+## Module And Dependencies
+
+This project uses Go modules:
+
+- `go.mod` defines the module path and required dependencies.
+- `go.sum` stores checksums for downloaded dependencies.
+- `go mod tidy` cleans unused dependencies and adds missing ones after import changes.
+
+The `packages/` example demonstrates both local imports and a small third-party package.
 
 ## Why This Repository Exists
 
