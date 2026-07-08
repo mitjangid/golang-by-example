@@ -31,7 +31,7 @@ func main() {
 	fmt.Println(fixedNumbers)
 
 	// Multidimensional arrays are arrays whose elements are arrays.
-	profileTable := [2][2]string{{"name", "age"}, {"Amit", "37"}}
+	profileTable := [...][2]string{{"name", "age"}, {"Amit", "37"}}
 	fmt.Println(profileTable)
 
 	// Use arrays when the size is known and should not change.
