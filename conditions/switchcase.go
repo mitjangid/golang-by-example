@@ -13,9 +13,10 @@ func main() {
 	switch dayNumber {
 	case 1:
 		fmt.Println("Monday")
-		fallthrough //this will continue to next case even case 1 is true, relevant to nested if else
+		fallthrough //this will continue to next case even case 1 is true
 	case 2:
 		fmt.Println("Tuesday")
+		fallthrough 
 	case 3:
 		fmt.Println("Wednesday")
 	case 4:
