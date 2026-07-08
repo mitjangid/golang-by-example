@@ -1,0 +1,21 @@
+# Local archives and backups
+*.7z
+*.zip
+*.rar
+
+# Go build outputs
+*.exe
+*.test
+*.out
+bin/
+
+# Coverage and temporary files
+coverage.out
+tmp/
+temp/
+
+# Editor and OS metadata
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
