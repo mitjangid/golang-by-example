@@ -1,0 +1,27 @@
+{
+  "defer": {
+    "prefix": "defer",
+    "body": [
+      "defer ${1:call}()",
+      "${0}"
+    ],
+    "description": "defer template"
+  },
+  "table_test": {
+    "prefix": "tcase",
+    "body": [
+      "func Test${1:Func}(t *testing.T) {",
+      "\ttests := []struct{ name string; in ${2:type}; want ${3:type} }{",
+      "\t\t{\"case1\", ${4:in}, ${5:want}},",
+      "\t}",
+      "\tfor _, tc := range tests {",
+      "\t\tt.Run(tc.name, func(t *testing.T) {",
+      "\t\t\tgot := ${6:Func}(tc.in)",
+      "\t\t\tif got != tc.want { t.Fatalf(\"want %v got %v\", tc.want, got) }",
+      "\t\t})",
+      "\t}",
+      "}"
+    ],
+    "description": "table-driven test snippet"
+  }
+}
