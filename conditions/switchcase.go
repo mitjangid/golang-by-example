@@ -13,10 +13,10 @@ func main() {
 	switch dayNumber {
 	case 1:
 		fmt.Println("Monday")
-		fallthrough //this will continue to next case even case 1 is true
+		fallthrough // Continue to the next case even when case 1 is true.
 	case 2:
 		fmt.Println("Tuesday")
-		fallthrough 
+		fallthrough
 	case 3:
 		fmt.Println("Wednesday")
 	case 4:

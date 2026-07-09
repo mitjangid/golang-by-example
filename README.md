@@ -4,6 +4,8 @@ A practical, beginner-friendly Go walkthrough created by **Amit K. Jangir**.
 
 This repository is a compact learning map for Go fundamentals. Each folder focuses on one concept, with small runnable examples and comments written to explain the idea without overwhelming the reader.
 
+Each concept folder also has its own `README.md` with the files to run, the main ideas to practice, and useful predefined functions or commands for that topic.
+
 ## What You Will Learn
 
 - Variables, constants, and basic printing
@@ -55,6 +57,8 @@ go run packages/main.go
 ```
 
 Most concept files are standalone `package main` examples. Run files one at a time instead of running an entire folder, because some folders contain multiple standalone examples.
+
+For quick notes about a topic, open the `README.md` inside that folder before running its examples.
 
 The `packages/` example imports local packages and the third-party `github.com/fatih/color` package, so run it from the repository root:
 
