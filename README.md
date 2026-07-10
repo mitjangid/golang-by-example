@@ -20,29 +20,41 @@ Each concept folder also has its own `README.md` with the files to run, the main
 - Goroutines, channels, WaitGroups, and mutexes
 - Enum-style typed constants with `iota`
 - Local packages, modules, `go.mod`, `go.sum`, and third-party dependencies
+- Error handling, custom errors, panic, and recover
+- Testing with table-driven tests and benchmarks
+- HTTP servers and handlers
+- JSON encoding and decoding
+- Context for cancellations, timeouts, and request-scoped values
+- Defer for resource cleanup and timing
 
 ## Project Structure
 
 ```text
 .
-|-- array/        # Arrays, slices, maps, and range
-|-- channels/     # Channel basics, buffering, done signals, and select
-|-- conditions/   # if/else and switch examples
-|-- enums/        # Enum-style constants with iota
-|-- files/        # File reading, writing, renaming, deleting, and folders
-|-- functions/    # Functions, closures, variadic params, function values
-|-- generics/     # Generic functions and generic types
-|-- goroutines/   # Concurrent execution and WaitGroups
-|-- interface/    # Interface-driven payment gateway example
-|-- loops/        # for loops, break, and continue
-|-- mutex/        # Race-condition-safe shared state
-|-- packages/     # Local packages, exported names, and dependencies
-|-- pointer/      # Pointers and value updates
-|-- struct/       # Structs, methods, embedding, constructors
-|-- variables/    # Variables, constants, and simple expressions
-|-- go.mod        # Module name and dependency requirements
-|-- go.sum        # Dependency checksums
-`-- main.go       # Small root entry point
+|-- array/            # Arrays, slices, maps, and range
+|-- channels/         # Channel basics, buffering, done signals, and select
+|-- conditions/       # if/else and switch examples
+|-- context/          # Context for cancellations, timeouts, and request-scoped values
+|-- defer/            # Deferred function execution for cleanup and timing
+|-- enums/            # Enum-style constants with iota
+|-- error_handlings/  # Error handling, custom errors, panic, and recover
+|-- files/            # File reading, writing, renaming, deleting, and folders
+|-- functions/        # Functions, closures, variadic params, function values
+|-- generics/         # Generic functions and generic types
+|-- goroutines/       # Concurrent execution and WaitGroups
+|-- http/             # HTTP servers and handlers
+|-- interface/        # Interface-driven payment gateway example
+|-- json/             # JSON encoding and decoding
+|-- loops/            # for loops, break, and continue
+|-- mutex/            # Race-condition-safe shared state
+|-- packages/         # Local packages, exported names, and dependencies
+|-- pointer/          # Pointers and value updates
+|-- struct/           # Structs, methods, embedding, constructors
+|-- testing/          # Unit testing, table-driven tests, and benchmarks
+|-- variables/        # Variables, constants, and simple expressions
+|-- go.mod            # Module name and dependency requirements
+|-- go.sum            # Dependency checksums
+`-- main.go           # Small root entry point
 ```
 
 ## How To Run
@@ -54,6 +66,11 @@ go run variables/variables.go
 go run array/slice.go
 go run goroutines/goroutines.go
 go run packages/main.go
+go run error_handlings/basic_error_handling.go
+go run http/server.go
+go run json/json.go
+go run context/context.go
+go run defer/defer.go
 ```
 
 Most concept files are standalone `package main` examples. Run files one at a time instead of running an entire folder, because some folders contain multiple standalone examples.
@@ -73,6 +90,20 @@ go run files/files.go
 cd files && go run files.go
 ```
 
+The `testing/` folder contains test files that are run with `go test`:
+
+```bash
+go test -v ./testing/
+go test -bench=. ./testing/
+```
+
+The `http/` example starts a web server that you can access in your browser:
+
+```bash
+go run http/server.go
+# Then visit http://localhost:8080/
+```
+
 ## Recommended Go Version
 
 Use **Go 1.21 or newer**.
@@ -85,7 +116,13 @@ Some examples use modern standard-library helpers such as `slices`, `maps`, and 
 2. Move to `loops/`, `array/`, and `functions/`.
 3. Learn `pointer/`, `struct/`, `interface/`, and `files/`.
 4. Explore `packages/` to understand modules, imports, exported names, and dependencies.
-5. Finish with `generics/`, `goroutines/`, `channels/`, and `mutex/`.
+5. Learn `error_handlings/` for Go's explicit error handling approach.
+6. Practice `defer/` for resource cleanup and timing.
+7. Explore `context/` for cancellations, timeouts, and request-scoped values.
+8. Learn `json/` for encoding and decoding JSON data.
+9. Build web servers with `http/`.
+10. Write tests with `testing/`.
+11. Finish with `generics/`, `goroutines/`, `channels/`, and `mutex/`.
 
 ## Module And Dependencies
 
